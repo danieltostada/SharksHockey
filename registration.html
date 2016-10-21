@@ -1,0 +1,71 @@
+<!DOCTYPE HTML5 PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+		<title>San Jose Sharks Hockey - Resistration Page</title>
+		<link href="SharksHockeyStyle.css" rel="stylesheet" type="text/css"/>
+		<script>
+			function UserInformation(firstname, lastname, age, user, pass, email) {
+				this.firstname = firstname;
+				this.lastname = lastname;
+				this.age = age;
+				this.user = user;
+				this.pass = pass;
+				this.email = email;
+			}
+			function DisplayInformation() {
+				with (document.registration) {
+					info = new UserInformation(firstname.value, lastname.value, age.value, user.value, pass.value, email.value);}
+				with (info) {
+					document.write("<p>Thank you " + firstname + " " + lastname);
+					document.write("<br>13 is the minimum age to subscribe and you are " + age + " years old.<br>");
+					document.write("The email address you provided was: " + email + "<br>");
+					document.write("You chose the username: " + user + "<br>");
+					document.write("Your password: <b>" + pass + "</b> is valid.<br>You should write it down.<br>");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<section id = "main" >
+			<header><h1>THIS IS SHARKS TERRITORY</h1></header>
+			<nav>
+				<li><a href = "index.html" >Home</a></li>
+				<li><a href = "registration.html" >Registration</a></li>
+			</nav>
+		</section>
+		<section id = "registrationsection" >
+			<header><h1>Registration</h1></header>
+			<form name = "registration" onsubmit = "return DisplayInformation(this)" method = "post" >
+				<table>
+					<tr><td>First name: </td><td><input type = "text" id = "firstname" required /></td></tr>
+					<tr><td>Last name: </td><td><input type = "text" id = "lastname" required /></td></tr>
+					<tr><td>Your age: </td><td><input type = "number" id = "age" min="13" required /></td></tr>
+					<tr><td>Desired username: </td><td><input type = "text" title = "Username must contain only letters, numbers and underscores" id = "user" required pattern= "\w+" /></td></tr>
+					<tr><td>Desired password: </td><td><input	type = "password" id = "pass" 
+																title = "Password must contain at least 6 characters. Those characters must include uppercase, lowercase, and number"
+																required pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+																onchange = "this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+																			if(this.checkValidity()) 
+																			form.password2.pattern = this.value;" ></td></tr>
+					<tr><td>Confirm password: </td><td><input 	type = "password" title = "Please enter the same password as above" id = "psw" 
+																required pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+																onchange = "this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" ></td></tr>
+					<tr><td>Valid e-mail address: </td><td><input type = "email" id = "email" required /></td></tr>
+				</table>
+				<input type = "submit" value = "Submit" />
+				<input type	= "reset"  value = "Reset" />
+			</form>
+		</section>
+		<section>
+			<footer>
+				<h4>Social Media</h4>
+			</footer>
+			<nav>
+				<li><a href="https://www.facebook.com/SanJoseSharks">Facebook</a></li>
+				<li><a href="https://instagram.com/sanjosesharks/">Instagram</a></li>
+				<li><a href="https://twitter.com/sanjosesharks">Twitter</a></li>
+			</nav>
+		</section>
+	</body>
+</html>
