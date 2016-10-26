@@ -147,6 +147,7 @@ div.photo-container a span {
 }
 div.photo-container a:hover span {
 	visibility: visible
+	background: teal;
 }
 div.photo-container img {
 	position: relative;
