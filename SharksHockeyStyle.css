@@ -146,7 +146,7 @@ div.photo-container a span {
 	margin-left: -150px;
 }
 div.photo-container a:hover span {
-	visibility: visible
+	visibility: visible;
 	background: teal;
 }
 div.photo-container img {
