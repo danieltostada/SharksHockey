@@ -1,0 +1,114 @@
+<!DOCTYPE HTML5 PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>San Jose Sharks Hockey - Player Information Page</title>
+		<link href="SharksHockeyStyle.css" rel="stylesheet" type="text/css"/>
+		<script>
+			function loadDocument() {
+				var xhttp = new XMLHttpRequest();
+				var xmlDoc;
+				xhttp.open("GET", "team.xml", true);
+				xhttp.setRequestHeader("Content-Type", "text/xml");
+				xhttp.onreadystatechange = function() {
+    			if (this.readyState == 4 && this.status == 200) {
+      			xmlDoc = this.responseText;
+    			}
+  			};
+				xhttp.send();
+			  var player = xmlDoc.player[0];
+			  var table="<tr><th>Name</th><th>Jersey Number</th><th>Position</th><th>Shooting Hand</th><th>Height</th><th>Weight</th></tr>";
+
+			  var option = playerForm.playerSelect.selectedIndex;
+				alert(player + " " + option);
+				for (var index = 0; index < player.length; index++) {
+		      if (player[index].getElementsByTagName("jersey")[0].childNodes[0].nodeValue == option.selectedIndex.value) {
+						alert("stuff");
+		        table += "<tr><td>" + player[index].getElementsByTagName("firstname")[0].childNodes[0].nodeValue
+		              + "" + player[index].getElementsByTagName("lastname")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("jersey")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("position")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("hand")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("height")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("weight")[0].childNodes[0].nodeValue
+		              + "</td></tr>";
+		      }
+			}
+			document.getElementById("playerInformation").innerHTML = table;
+		}
+			function retrievePlayer(xml) {
+
+			  var index;
+			  var xmlDoc = xml.responseXML;
+			  var table="<tr><th>Name</th><th>Jersey Number</th><th>Position</th><th>Shooting Hand</th><th>Height</th><th>Weight</th></tr>";
+			  var player = xmlDoc.getElementsByTagName("player");
+			  var option = playerForm.playerSelect.selectedIndex;
+				alert(option);
+				for (index = 0; index < player.length; index++) {
+		      if (player[index].getElementsByTagName("jersey")[0].childNodes[0].nodeValue == option[option.selectedIndex].value) {
+		        table += "<tr><td>" + player[index].getElementsByTagName("firstname")[0].childNodes[0].nodeValue
+		              + "" + player[index].getElementsByTagName("lastname")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("jersey")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("position")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("hand")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("height")[0].childNodes[0].nodeValue
+		              + "</td><td>" + player[index].getElementsByTagName("weight")[0].childNodes[0].nodeValue
+		              + "</td></tr>";
+		      }
+					return false;
+		    }
+				document.getElementById("playerInformation").innerHTML = "table";
+		}
+		</script>
+	</head>
+	<body>
+		<section id = "main" >
+			<header><h1>THIS IS SHARKS TERRITORY</h1></header>
+			<nav>
+				<li><a href = "index.html" >Home</a></li>
+				<li><a href = "registration.html" >Registration</a></li>
+				<li><a href = "players.html" >Players</a></li>
+			</nav>
+		</section>
+		<section id = "playerSection" >
+			<form name="playerForm" method="get">
+					<select name="playerSelect">
+						<option value="zero">Choose a player:</option>
+						<option value="89">Mikkel Boedker</option>
+						<option value="61">Justin Braun</option>
+						<option value="88">Brent Burns</option>
+						<option value="39">Logan Couture</option>
+						<option value="30">Aaron Dell</option>
+						<option value="74">Dylan DeMelo</option>
+						<option value="4">Brenden Dillon</option>
+						<option value="27">Joonas Donskoi</option>
+						<option value="38">Micheal Haley</option>
+						<option value="48">Tomas Hertl</option>
+						<option value="31">Martin Jones</option>
+						<option value="68">Melker Karlsson</option>
+						<option value="12">Patrick Marleau</option>
+						<option value="7">Paul Martin</option>
+						<option value="83">Matt Nieto</option>
+						<option value="8">Joe Pavelski</option>
+						<option value="5">David Schlemko</option>
+						<option value="19">Joe Thornton</option>
+						<option value="50">Chris Tierney</option>
+						<option value="44">Marc-Edouard Vlasic</option>
+						<option value="42">Joel Ward</option>
+						<option value="57">Tommy Wingels</option>
+					</select>
+					<input type="button" value="Get Information" onclick="loadDocument()"/>
+			</form>
+			<p id = "playerInformation"></p>
+		</section>
+		<section>
+			<footer>
+				<h4>Social Media</h4>
+			</footer>
+			<nav>
+				<li><a href="https://www.facebook.com/SanJoseSharks">Facebook</a></li>
+				<li><a href="https://instagram.com/sanjosesharks/">Instagram</a></li>
+				<li><a href="https://twitter.com/sanjosesharks">Twitter</a></li>
+			</nav>
+		</section>
+	</body>
+</html>

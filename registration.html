@@ -15,7 +15,8 @@
 			}
 			function DisplayInformation() {
 				with (document.registration) {
-					info = new UserInformation(firstname.value, lastname.value, age.value, user.value, pass.value, email.value);}
+					info = new UserInformation(firstname.value, lastname.value, age.value, user.value, pass.value, email.value);
+				}
 				with (info) {
 					document.write("<p>Thank you " + firstname + " " + lastname);
 					document.write("<br>13 is the minimum age to subscribe and you are " + age + " years old.<br>");
@@ -32,6 +33,7 @@
 			<nav>
 				<li><a href = "index.html" >Home</a></li>
 				<li><a href = "registration.html" >Registration</a></li>
+				<li><a href = "players.html" >Players</a></li>
 			</nav>
 		</section>
 		<section id = "registrationsection" >
@@ -42,13 +44,13 @@
 					<tr><td>Last name: </td><td><input type = "text" id = "lastname" required /></td></tr>
 					<tr><td>Your age: </td><td><input type = "number" id = "age" min="13" required /></td></tr>
 					<tr><td>Desired username: </td><td><input type = "text" title = "Username must contain only letters, numbers and underscores" id = "user" required pattern= "\w+" /></td></tr>
-					<tr><td>Desired password: </td><td><input	type = "password" id = "pass" 
+					<tr><td>Desired password: </td><td><input	type = "password" id = "pass"
 																title = "Password must contain at least 6 characters. Those characters must include uppercase, lowercase, and number"
-																required pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+																required pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
 																onchange = "this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
-																			if(this.checkValidity()) 
+																			if(this.checkValidity())
 																			form.password2.pattern = this.value;" ></td></tr>
-					<tr><td>Confirm password: </td><td><input 	type = "password" title = "Please enter the same password as above" id = "psw" 
+					<tr><td>Confirm password: </td><td><input 	type = "password" title = "Please enter the same password as above" id = "psw"
 																required pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
 																onchange = "this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" ></td></tr>
 					<tr><td>Valid e-mail address: </td><td><input type = "email" id = "email" required /></td></tr>
