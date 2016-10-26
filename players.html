@@ -15,10 +15,11 @@
     			}
   			};
 				xhttp.send();
+				var option = playerForm.playerSelect.selectedIndex;
+				alert(option);
 			  var player = xmlDoc.player[0];
 			  var table="<tr><th>Name</th><th>Jersey Number</th><th>Position</th><th>Shooting Hand</th><th>Height</th><th>Weight</th></tr>";
 
-			  var option = playerForm.playerSelect.selectedIndex;
 				alert(player + " " + option);
 				for (var index = 0; index < player.length; index++) {
 		      if (player[index].getElementsByTagName("jersey")[0].childNodes[0].nodeValue == option.selectedIndex.value) {
